@@ -1,0 +1,41 @@
+
+
+<div class="col-xs-6" ui-view>
+	
+<h2>Transactions</h2>
+<form class="form-inline" ng-submit="transactions_ctrl.addTransaction()">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <input class="form-control" type="text" placeholder="Credit amount" ng-model="transactions_ctrl.newTransaction.amount">
+	</div>
+  </div>
+  <div class="form-group">
+    <label class="sr-only"></label>
+    <input class="form-control" type="text" placeholder="Description" ng-model="transactions_ctrl.newTransaction.description" >
+  </div>
+  <button type="submit" class="btn btn-default">Add</button>
+</form>
+    
+	<br>
+	
+  <table class="table table-striped" ng-show="transactions_ctrl.transactions.length">
+    <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    
+	<tbody>
+      <tr ng-repeat="transaction in transactions_ctrl.transactions">
+        <td>{{transaction.amount}}</td>
+        <td>{{transaction.date}}</td>
+        <td>{{transaction.description}}</td>
+		<td>{{transaction.action}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
